@@ -26,6 +26,11 @@ export const Container = styled.div`
     border:1px solid rgba(0,0,0,.125);
     border-radius:.25rem;
     margin: 10px;
+
+    &:hover {
+        border: 1px solid rgba(255, 222, 0, 0.7);
+        transform: scale(1.05);
+    }
 `
 
 export const PokemonImage = styled.img`

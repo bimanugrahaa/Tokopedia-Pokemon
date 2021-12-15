@@ -45,4 +45,10 @@ export const PokemonImage = styled.img`
 export const Name = styled.p`
     font-size: 14px;
     margin-top: 0;
+    margin-bottom: 0;
+`
+
+export const Owned = styled.p`
+    font-size: 14px;
+    margin-top: 0;
 `

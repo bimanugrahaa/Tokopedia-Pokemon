@@ -1,12 +1,14 @@
 import './App.css';
 import Card from './components/Card';
+import Detail from './components/Detail';
 import Header from './components/Header';
 
 function App() {
   return (
     <>
       <Header></Header>
-      <Card></Card>
+      {/* <Card></Card> */}
+      <Detail></Detail>
     </>
     
     // <div className="App">

@@ -1,9 +1,14 @@
 import './App.css';
+import Card from './components/Card';
 import Header from './components/Header';
 
 function App() {
   return (
-    <Header></Header>
+    <>
+      <Header></Header>
+      <Card></Card>
+    </>
+    
     // <div className="App">
     //   <header className="App-header">
     //     <img src={logo} className="App-logo" alt="logo" />

@@ -16,12 +16,12 @@ export const Nav = styled.nav`
     }
     
     a {
-        @media (min-width: 600px) {
+        @media (min-width: 576px) {
             float: none;
             display: inline-block;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 576px) {
             float: none;
             display: block;
       }

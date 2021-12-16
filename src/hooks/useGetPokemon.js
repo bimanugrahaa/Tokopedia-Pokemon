@@ -9,9 +9,6 @@ function useGetPokemonList(limit, offset) {
         }
     })
 
-    // console.log("limit", Limit)
-    // console.log("offset", Offset)
-
     return {
         pokemonDataList,
         pokemonDataLoading,

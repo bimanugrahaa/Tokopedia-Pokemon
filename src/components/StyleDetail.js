@@ -15,7 +15,7 @@ background-color:#fff;
 
 export const PokemonImage = styled.img`
     height: 150px;
-    width: 75%;
+    width: 150px;
 
     @media (min-width: 576px) {
         height: 200px;

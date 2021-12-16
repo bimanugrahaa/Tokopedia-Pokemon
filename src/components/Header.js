@@ -1,5 +1,6 @@
 import { Logo, Nav, NavItem } from "./StyleHeader";
 import logo from '../assets/Pokemon_logo.svg';
+import { NavLink } from "react-router-dom";
 
 export default function Header() {
     
@@ -9,8 +10,8 @@ export default function Header() {
         <Nav>
             <Logo src={logo}/>
             <div>
-                <NavItem>Pokemon list</NavItem>
-                <NavItem>My pokemon</NavItem>
+                <NavLink to="/"><NavItem>Pokemon list</NavItem></NavLink>
+                <NavLink to="/my-pokemon"><NavItem>My pokemon</NavItem></NavLink>
             </div>
             
         </Nav>

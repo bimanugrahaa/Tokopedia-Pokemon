@@ -5,8 +5,11 @@ import { useGetPokemonDetail } from '../hooks/useGetPokemon';
 
 export default function PokemonDetail() {
     
+    const urlNow = window.location.pathname
+    const uriSplit = urlNow.split('/')
+    const namePokemon = uriSplit[2]
     // const [pokemonDetail, getPokemonDetail] = useState([])
-    const {detailData, detailLoading, detailError} = useGetPokemonDetail("bulbasaur");
+    const {detailData, detailLoading, detailError} = useGetPokemonDetail(namePokemon);
 
     //Fetch pokemon list
     // const fetchPokemonDetail = async() => {

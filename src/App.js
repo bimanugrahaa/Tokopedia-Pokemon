@@ -2,13 +2,15 @@ import './App.css';
 import Card from './components/Card';
 import Detail from './components/Detail';
 import Header from './components/Header';
+import PokemonList from './pages/PokemonList';
 
 function App() {
   return (
     <>
-      <Header></Header>
+      {/* <Header></Header> */}
       {/* <Card></Card> */}
-      <Detail></Detail>
+      {/* <Detail></Detail> */}
+      <PokemonList></PokemonList>
     </>
     
     // <div className="App">

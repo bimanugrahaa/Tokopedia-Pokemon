@@ -1,16 +1,18 @@
 import { useQuery } from "@apollo/client";
 import { GetPokemonDetail, GetPokemonList } from "../graphql/query";
 
-function useGetPokemonList(Limit, Offset) {
-    const [getPokemonList, {data: pokemonDataList, loading: pokemonDataLoading, error: pokemonDataerror}] = useQuery(GetPokemonList, {
+function useGetPokemonList(limit, offset) {
+    const {data: pokemonDataList, loading: pokemonDataLoading, error: pokemonDataerror} = useQuery(GetPokemonList, {
         variables:{
-            Limit,
-            Offset
+            limit,
+            offset
         }
     })
 
+    // console.log("limit", Limit)
+    // console.log("offset", Offset)
+
     return {
-        getPokemonList,
         pokemonDataList,
         pokemonDataLoading,
         pokemonDataerror
@@ -28,3 +30,5 @@ function useGetPokemonDetail(Name) {
         detailError
     }
 }
+
+export { useGetPokemonList, useGetPokemonDetail }

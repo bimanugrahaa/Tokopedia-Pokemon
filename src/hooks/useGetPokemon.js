@@ -16,10 +16,14 @@ function useGetPokemonList(limit, offset) {
     }
 }
 
-function useGetPokemonDetail(Name) {
+function useGetPokemonDetail(name) {
     const {data: detailData, loading: detailLoading, error: detailError} = useQuery(GetPokemonDetail, {
-        variables: {Name}
+        variables: {
+            name
+        }
     })
+
+    console.log("Name", detailData)
 
     return {
         detailData,

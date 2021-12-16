@@ -2,6 +2,7 @@ import './App.css';
 import Card from './components/Card';
 import Detail from './components/Detail';
 import Header from './components/Header';
+import PokemonDetail from './pages/PokemonDetail';
 import PokemonList from './pages/PokemonList';
 
 function App() {
@@ -10,7 +11,8 @@ function App() {
       {/* <Header></Header> */}
       {/* <Card></Card> */}
       {/* <Detail></Detail> */}
-      <PokemonList></PokemonList>
+      {/* <PokemonList></PokemonList> */}
+      <PokemonDetail></PokemonDetail>
     </>
     
     // <div className="App">

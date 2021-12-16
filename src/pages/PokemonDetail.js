@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import Detail from '../components/Detail';
 import Header from '../components/Header';
 import { useGetPokemonDetail } from '../hooks/useGetPokemon';
+import { addMyPokemon } from '../store/Data';
 
 export default function PokemonDetail() {
     
@@ -11,6 +13,7 @@ export default function PokemonDetail() {
     // const [pokemonDetail, getPokemonDetail] = useState([])
     const {detailData, detailLoading, detailError} = useGetPokemonDetail(namePokemon);
 
+    const dispatch = useDispatch()
     //Fetch pokemon list
     // const fetchPokemonDetail = async() => {
     //     try {
@@ -22,10 +25,20 @@ export default function PokemonDetail() {
 
     console.log("detail", detailData?.pokemon)
 
+    const handleCatch = (e) => {
+        const newPokemon = {
+            id: detailData?.pokemon?.id,
+            name: detailData?.pokemon?.name,
+            image: detailData?.pokemon?.sprites?.front_default,
+        }
+
+        dispatch(addMyPokemon(newPokemon))
+        console.log("added")
+    }
     return (
         <>
         <Header></Header>
-        <Detail pokemonDetail={detailData?.pokemon}></Detail>
+        <Detail pokemonDetail={detailData?.pokemon} onClick={handleCatch}></Detail>
         </>
     )
 }

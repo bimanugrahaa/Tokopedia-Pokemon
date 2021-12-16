@@ -21,7 +21,7 @@ export default function Detail(props) {
             <Owned>Owned: 1</Owned>
         </Container>
         <Container>
-            <CatchButton>CATCH!</CatchButton>
+            <CatchButton onClick={() => props.onClick()}>CATCH!</CatchButton>
         </Container>
         <Name>Types</Name>
         <Grid>

@@ -6,7 +6,7 @@ const myPokemon = [{
     id: "",
     name: "",
     image: ""
-},]
+}]
 
 export const Data = createSlice({
     name: "myPokemon",

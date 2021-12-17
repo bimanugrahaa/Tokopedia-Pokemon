@@ -5,6 +5,7 @@ import PokemonList from './pages/PokemonList';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './store/Store'
+import MyPokemon from './pages/MyPokemon';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Routes>
             <Route path="/" exact element={<PokemonList/>}/>
             <Route path="/pokemon/:name" exact element={<PokemonDetail/>}/>
+            <Route path="/my-pokemon" exact element={<MyPokemon/>}/>
           </Routes>
         </BrowserRouter>
       </PersistGate>

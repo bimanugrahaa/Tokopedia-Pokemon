@@ -3,13 +3,21 @@ import { useNavigate } from "react-router-dom";
 
 export default function Card(props) {
 
+    console.log("props", props)
     return (
         <>
-            <Container onClick={() => props.onClick()}>
-                <PokemonImage src={props?.pokemonData?.image}/>
-                <Name>{props.pokemonData?.name}</Name>
-                <Owned>Owned: 1</Owned>
-            </Container>
+            {props.onClick === undefined? 
+                <Container>
+                    <PokemonImage src={props?.pokemonData?.image}/>
+                    <Name>{props.pokemonData?.name}</Name>
+                    <Owned>Owned: 1</Owned>
+                </Container>
+                :
+                <Container onClick={() => props.onClick()}>
+                    <PokemonImage src={props?.pokemonData?.image}/>
+                    <Name>{props.pokemonData?.name}</Name>
+                    <Owned>Owned: 1</Owned>
+                </Container>}
         </>
     )
 }

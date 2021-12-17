@@ -4,6 +4,7 @@ import Detail from '../components/Detail';
 import Header from '../components/Header';
 import { useGetPokemonDetail } from '../hooks/useGetPokemon';
 import { addMyPokemon } from '../store/Data';
+import getProbability from '../utils/getProbability';
 
 export default function PokemonDetail() {
     
@@ -25,15 +26,24 @@ export default function PokemonDetail() {
 
     console.log("detail", detailData?.pokemon)
 
-    const handleCatch = (e) => {
+    const handleCatch = () => {
+        const prob = getProbability()
         const newPokemon = {
             id: detailData?.pokemon?.id,
             name: detailData?.pokemon?.name,
             image: detailData?.pokemon?.sprites?.front_default,
         }
 
-        dispatch(addMyPokemon(newPokemon))
-        console.log("added")
+        if (prob) {
+            dispatch(addMyPokemon(newPokemon))
+            console.log("added")
+        } else {
+            console.log("not added")
+        }
+        
+
+        console.log("prob", getProbability())
+        
     }
     return (
         <>

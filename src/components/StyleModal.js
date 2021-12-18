@@ -9,6 +9,10 @@ const dynamicFontSize = props =>
     css`
         font-size: ${props.fontSize}
     `
+const dynamicTextColor = props => 
+    css`
+        color: ${props.color}
+    `
 
 export const Image = styled.img`
     width: 50px;
@@ -41,5 +45,6 @@ export const Button = styled.button`
 `
 export const Text = styled.p`
     ${dynamicFontSize}
+    ${dynamicTextColor}
     margin: 10px 10px;
 `

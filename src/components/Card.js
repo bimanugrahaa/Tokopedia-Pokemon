@@ -1,9 +1,15 @@
 import { Container, Grid, Name, Owned, PokemonImage } from "./StyleCard";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function Card(props) {
 
-    console.log("props", props)
+    const myPokemon = useSelector((state) => state.myPokemon.myPokemon)
+
+    const dataOwned = myPokemon.filter((pokemon) => (
+        pokemon.name === props?.pokemonData?.name
+    ))
+    console.log("dataOwned", dataOwned)
     return (
         <>
             {props.onClick === undefined? 
@@ -16,7 +22,7 @@ export default function Card(props) {
                 <Container onClick={() => props.onClick()}>
                     <PokemonImage src={props?.pokemonData?.image}/>
                     <Name>{props.pokemonData?.name}</Name>
-                    <Owned>Owned: 1</Owned>
+                    <Owned>Owned: {dataOwned.length}</Owned>
                 </Container>}
         </>
     )

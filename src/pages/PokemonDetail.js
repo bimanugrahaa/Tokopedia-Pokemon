@@ -59,18 +59,19 @@ export default function PokemonDetail() {
 
     const setNicknameInput = (nicknames) => {
         console.log("nicknames", nicknames)
-        if (nicknames === "") {
-            const index = myPokemon[myPokemon.length - 1].index + 1
-            const nick = pokemonDetail?.name + index.toString()
-            console.log("index", nick)
-            // setNickname(nick)
-        } else {
-            console.log("nicknames 1", nicknames)
-            // setNickname(nicknames)
-            // console.log("nickname inside", nickname)
-            // const add = addMyPokemon(newPokemon)
-            // dispatch(add)
-        }
+        // let nick = nicknames
+        // if (nicknames === "") {
+        //     const index = myPokemon[myPokemon.length - 1].index + 1
+        //     nick = pokemonDetail?.name + index.toString()
+        //     console.log("index", nick)
+        //     // setNickname(nick)
+        // } else {
+        //     console.log("nicknames 1", nicknames)
+        //     // setNickname(nicknames)
+        //     // console.log("nickname inside", nickname)
+        //     // const add = addMyPokemon(newPokemon)
+        //     // dispatch(add)
+        // }
         // setNewPokemon({
         //     index: myPokemon[myPokemon.length - 1].index + 1,
         //     id: detailData?.pokemon?.id,

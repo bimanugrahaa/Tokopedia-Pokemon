@@ -19,11 +19,15 @@ export const Data = createSlice({
             const newPokemon = {
                 ...action.payload,
             }
-
             state.myPokemon = [...state.myPokemon, newPokemon]
+        },
+        deleteMyPokemon: (state, action) => {
+            state.myPokemon = state.myPokemon.filter((pokemon) => {
+                return pokemon.index !== action.payload
+            })
         }
     }
 })
 
-export const { addMyPokemon } = Data.actions;
+export const { addMyPokemon, deleteMyPokemon } = Data.actions;
 export default Data.reducer

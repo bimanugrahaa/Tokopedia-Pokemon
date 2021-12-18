@@ -1,4 +1,4 @@
-import { Container, Grid, Name, Owned, PokemonImage } from "./StyleCard";
+import { Button, Container, Grid, Name, Owned, PokemonImage } from "./StyleCard";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -9,7 +9,7 @@ export default function Card(props) {
     const dataOwned = myPokemon.filter((pokemon) => (
         pokemon.name === props?.pokemonData?.name
     ))
-    console.log("dataOwned", dataOwned)
+
     return (
         <>
             {props.onClick === undefined? 
@@ -17,14 +17,16 @@ export default function Card(props) {
                     <Name>{props.pokemonData?.name}</Name>
                     <PokemonImage src={props?.pokemonData?.image}/>
                     <Name>{props.pokemonData?.nickname}</Name>
-                    {/* <Owned>Owned: 1</Owned> */}
+                    <Button onClick={() => props.deleteMyPokemon(myPokemon.index)}>Release</Button>
                 </Container>
                 :
                 <Container onClick={() => props.onClick()}>
-                    <PokemonImage src={props?.pokemonData?.image}/>
                     <Name>{props.pokemonData?.name}</Name>
-                    <Owned>Owned: {dataOwned.length}</Owned>
-                </Container>}
+                    <PokemonImage src={props?.pokemonData?.image}/>
+                    <Owned>Owned</Owned>
+                    <Owned fontWeight="700">{dataOwned.length}</Owned>
+                </Container>
+            }
         </>
     )
 }

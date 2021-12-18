@@ -33,3 +33,10 @@ export const Button = styled.button`
     cursor: pointer;
     margin: auto;
 `
+
+export const H1 = styled.h1`
+    color: #3B4CCA;
+    text-align: center;
+    margin: 10px;
+    text-transform: uppercase;
+`

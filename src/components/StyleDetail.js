@@ -6,7 +6,7 @@ background-color:#fff;
     
     height: 100%;
     width: 90%;
-    margin: 20px;
+    margin: 10px auto;
     text-align: center;
     border-radius:.25rem;
     border: ${props => 
@@ -18,8 +18,8 @@ export const PokemonImage = styled.img`
     width: 150px;
 
     @media (min-width: 576px) {
-        height: 200px;
-        width: 75%;
+        height: 25%;
+        width: 25%;
     }
     
 `
@@ -38,18 +38,25 @@ export const Owned = styled.p`
 `
 
 export const CatchButton = styled.button`
-    display: inline-block;
+    // display: inline-block;
     border-radius: 4px;
     background-color: #FF0000;
     border: none;
     color: #FFFFFF;
     text-align: center;
     font-size: 24px;
-    padding: 20px;
-    width: 200px;
+    padding: 10px;
+    width: 20%;
     transition: all 0.5s;
     cursor: pointer;
-    margin: auto;
+    margin: 20px auto;
+
+    @media (max-width: 576px) {
+        // height: 25%;
+        font-size: 16px;
+        width: 100px;
+        padding: 10px;
+    }
 `
 
 export const Grid = styled.div`

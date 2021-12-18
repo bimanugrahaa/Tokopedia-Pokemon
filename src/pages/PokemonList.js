@@ -4,21 +4,25 @@ import { useNavigate } from "react-router-dom";
 
 import { useGetPokemonList } from "../hooks/useGetPokemon";
 import Card from '../components/Card';
-import Detail from '../components/Detail';
 import Header from '../components/Header';
-import { Button, Container, Grid } from "./StylePokemonList";
+import { Button, Container, Grid, H1 } from "./StylePokemonList";
 
 
 export default function PokemonList() {
     
     const [pokemonList, getPokemonList] = useState([])
     const [offset, setOffset] = useState(0);
-    const {pokemonDataList, pokemonDataLoading, _} = useGetPokemonList(20, offset);
+    const {pokemonDataList, pokemonDataLoading, pokemonDataError} = useGetPokemonList(20, offset);
+
+    const navigate = useNavigate();
+    const action = (name) => {
+        navigate(`/pokemon/${name}`)
+    }
 
     //Fetch pokemon list
     const fetchPokemonList = async() => {
         try {
-            await getPokemonList([...pokemonList, ...pokemonDataList?.pokemons?.results])
+            getPokemonList([...pokemonList, ...pokemonDataList?.pokemons?.results])
         } catch (error) {
             console.log("error fetch pokemon list", error)
         }
@@ -33,28 +37,21 @@ export default function PokemonList() {
         setOffset(() => pokemonDataList?.pokemons?.nextOffset)
     }
 
-    const navigate = useNavigate();
-
-    const action = (name) => {
-        navigate(`/pokemon/${name}`)
-    }
-
-    console.log("pokemon list", pokemonList)
-    return (
+        return (
         <>
             <Header></Header>
+            <H1>Pokemon List</H1>
             <Grid>
                 {pokemonList?.map((result) => (
                     <Card pokemonData={result} onClick={() => action(result.name)}></Card>
                 ))}
             </Grid>
-            {/* <Card pokemonData={pokemonList} onClick={() => action(pokemonList)}></Card> */}
             <Container>
                 {pokemonDataLoading? 
-                <Loader type="TailSpin" color="#FF0000" height={80} width={80}/>
-                :
-                <>
-                </>}
+                    <Loader type="TailSpin" color="#FF0000" height={80} width={80} style={{margin: "20px"}}/>
+                    :
+                    <></>
+                }
                 <Button onClick={loadMore}>Load More!</Button>
             </Container>  
         </>

@@ -1,9 +1,9 @@
-import { Logo, Nav, NavItem } from "./StyleHeader";
+import { Hamburger, Icon, Logo, MenuLabel, Nav, NavItem } from "./StyleHeader";
 import logo from '../assets/Pokemon_logo.svg';
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
 
 export default function Header() {
-    
 
     return (
         <>
@@ -12,8 +12,7 @@ export default function Header() {
             <div>
                 <NavLink to="/"><NavItem>Pokemon list</NavItem></NavLink>
                 <NavLink to="/my-pokemon"><NavItem>My pokemon</NavItem></NavLink>
-            </div>
-            
+            </div>      
         </Nav>
         </>
     )

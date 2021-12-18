@@ -14,9 +14,10 @@ export default function Card(props) {
         <>
             {props.onClick === undefined? 
                 <Container>
-                    <PokemonImage src={props?.pokemonData?.image}/>
                     <Name>{props.pokemonData?.name}</Name>
-                    <Owned>Owned: 1</Owned>
+                    <PokemonImage src={props?.pokemonData?.image}/>
+                    <Name>{props.pokemonData?.nickname}</Name>
+                    {/* <Owned>Owned: 1</Owned> */}
                 </Container>
                 :
                 <Container onClick={() => props.onClick()}>

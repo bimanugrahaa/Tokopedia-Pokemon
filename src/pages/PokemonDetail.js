@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import ReactModal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid'
@@ -120,6 +121,7 @@ export default function PokemonDetail() {
             
         } else {
             console.log("not added")
+            toast.error(`Oh no! ${pokemonDetail?.name} escape!`)
         }
     }
 
@@ -127,6 +129,7 @@ export default function PokemonDetail() {
     return (
         <>
         <Header></Header>
+        <Toaster position="bottom-center" reverseOrder={false}/>
         <Detail pokemonDetail={pokemonDetail} onClick={handleCatch}></Detail>
         <Modal show={show} setModal={setModal} setNicknameInput={setNicknameInput}></Modal>
         </>

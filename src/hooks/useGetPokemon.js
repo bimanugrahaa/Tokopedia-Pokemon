@@ -23,7 +23,7 @@ function useGetPokemonDetail(name) {
         }
     })
 
-    console.log("Name", detailData)
+    // console.log("Name", detailData)
 
     return {
         detailData,

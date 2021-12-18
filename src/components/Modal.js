@@ -1,19 +1,67 @@
 import { useEffect, useState } from "react";
 import ReactModal from "react-modal";
+import { useSelector } from "react-redux";
 import logo from '../assets/pokeball.png';
 import { Logo } from "./StyleHeader";
 import { Button, Image, Input, Text } from "./StyleModal";
 
 export default function Modal(prop) {
 
-    const [isOpen, setShow] = useState(prop.show);
+    const myPokemon = useSelector((state) => state.myPokemon.myPokemon)
+    const [show, setShow] = useState(prop.show);
+    const [nickname, setNickname] = useState("");
+    const [errNickname, setErrNickname] = useState("");
 
-    const handleCLick = () => {
-        setShow(!isOpen)
-        prop.isOpen(false)
+    const handleClick = (condition) => {
+        setShow(!show)
+        if (condition) {
+            const data = myPokemon.filter((nick) => (
+                nick.nickname.toString().toLowerCase() === nickname.toString().toLowerCase()
+            ))
+
+            console.log(data)
+            if (data.length === 0) {
+                // setNickname(value)
+                console.log("masuk")
+                console.log(nickname)
+                prop.setNicknameInput(nickname)
+                prop.setModal(false)
+                // prop.setNicknameInput(nickname)
+            } else {
+                setErrNickname("Nickname has already taken.")
+            }
+            // console.log(nickname)
+            // prop.setNicknameInput(nickname)
+        }
+
+        if (condition === false) {
+            prop.setModal(false)
+        }
+        // prop.setModal(false)
+        
+        
     }
 
-    console.log("isOpen modal", prop.show)
+    const handleInput = (e) => {
+        const value = e.target.value
+        console.log(value)
+        setNickname(value)
+        // const data = myPokemon.filter((nick) => (
+        //     nick.toString().toLowerCase() === nickname.toString().toLowerCase()
+        // ))
+
+        // if (data.length === 0) {
+        //     setNickname(value)
+        //     console.log("masuk")
+        //     // prop.setNicknameInput(nickname)
+        // } else {
+        //     setErrNickname("Nickname has already taken.")
+        // }
+        // console.log("errNickname", errNickname)
+        
+    }
+
+    // console.log("show modal", prop.show)
     return(
         <>
             <ReactModal
@@ -35,9 +83,10 @@ export default function Modal(prop) {
                 <Image src={logo}></Image>
                 <Text fontSize="18px">Pokemon Catched!</Text>
                 <Text fontSize="12px">Give your pokemon a nickname!</Text>
-                <Input></Input>
-                <Button bgColor="#FF0000">Save</Button>
-                <Button bgColor="#FF5C5C" onClick={() => handleCLick()}>Release</Button>
+                <Input value={nickname} onChange={(e) => handleInput(e)}></Input>
+                <Text fontSize="12px">{errNickname}</Text>
+                <Button bgColor="#FF0000" onClick={() => handleClick(true)}>Save</Button>
+                <Button bgColor="#FF5C5C" onClick={() => handleClick(false)}>Release</Button>
             </ReactModal>
         </>
     )

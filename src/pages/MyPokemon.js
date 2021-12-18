@@ -7,7 +7,7 @@ import { Grid } from "./StylePokemonList"
 export default function MyPokemon() {
     const myPokemon = useSelector((state) => state.myPokemon.myPokemon)
 
-    console.log(myPokemon[1].image)
+    console.log(myPokemon)
     return (
         <>
             <Header></Header>

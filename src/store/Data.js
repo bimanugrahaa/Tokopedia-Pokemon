@@ -2,9 +2,10 @@ import { createSlice } from '@reduxjs/toolkit'
 import { v4 as uuidv4 } from 'uuid'
 
 const myPokemon = [{
-    myID: uuidv4(),
-    id: "",
+    index: 0,
+    id: 0,
     name: "",
+    nickname: "",
     image: ""
 }]
 
@@ -16,7 +17,6 @@ export const Data = createSlice({
     reducers: {
         addMyPokemon: (state, action) => {
             const newPokemon = {
-                myID: uuidv4(),
                 ...action.payload,
             }
 

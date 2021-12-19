@@ -50,8 +50,7 @@
   },
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.16.5",
-    "@babel/preset-env": "^7.16.5",
-    "babel-jest": "^27.4.5"
+    "@babel/preset-env": "^7.16.5"
   },
   "jest": {
     "transform": {

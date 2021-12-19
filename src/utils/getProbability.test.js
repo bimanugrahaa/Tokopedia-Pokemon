@@ -1,4 +1,3 @@
-import { renderHook } from "@testing-library/react-hooks";
 
 describe("when getProbability function called", () => {
     it("check if getProbability return a value", () => {
@@ -15,19 +14,13 @@ describe("when getProbability function called", () => {
 
         const getProbability = jest.fn(() => false);
 
-        const { result } = renderHook(
-            () => getProbability());
-
-        expect(result.current).toEqual(false)
+        expect(getProbability()).toEqual(false)
     });
 
     it("check if getProbability return true", () => {
 
         const getProbability = jest.fn(() => true);
 
-        const { result } = renderHook(
-            () => getProbability());
-
-        expect(result.current).toEqual(true)
+        expect(getProbability()).toEqual(true)
     });
 });

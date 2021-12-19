@@ -13,7 +13,7 @@ export const Grid = styled.div`
 `
 
 export const Container = styled.div`
-    text-align:center;
+    text-align: center;
     margin: 10px 0px;
 
 `
@@ -37,4 +37,9 @@ export const H1 = styled.h1`
     text-align: center;
     margin: 10px;
     text-transform: uppercase;
+`
+
+export const Image = styled.img`
+    width: 150px;
+    height: 150px;
 `

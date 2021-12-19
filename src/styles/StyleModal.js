@@ -36,15 +36,15 @@ export const Button = styled.button`
     height: 24px;
     display: inline-block;
     border-radius: 4px;
-    ${dynamicBackground};
     border: none;
     color: #FFFFFF;
     font-size: 18px;
     cursor: pointer;
     text-align: center;
+    ${dynamicBackground};
 `
 export const Text = styled.p`
+    margin: 10px 10px;
     ${dynamicFontSize}
     ${dynamicTextColor}
-    margin: 10px 10px;
 `

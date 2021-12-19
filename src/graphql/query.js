@@ -37,6 +37,12 @@ query pokemon($name: String!) {
           name
         }
       }
+      stats {
+        stat {
+          name
+        }
+        base_stat
+      }
     }
 }
 `

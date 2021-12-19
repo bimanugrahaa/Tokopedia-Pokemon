@@ -1,113 +1,24 @@
-import { Container, Grid, Name, Owned, PokemonImage } from "./StyleCard";
-import bulbasaur from '../assets/bulbasaur.png';
+import { Button, Container, Name, Owned, PokemonImage } from "../styles/StyleCard";
 
+export default function Card(props) {
 
-export default function Card() {
-    
     return (
         <>
-            <Grid>
+            {props.onClick === undefined? 
                 <Container>
-                    <PokemonImage src={bulbasaur}/>
-                    <Name>Bulbasaur</Name>
-                    <Owned>Owned: 1</Owned>
+                    <Name>{props.pokemonData?.name}</Name>
+                    <PokemonImage src={props?.pokemonData?.image}/>
+                    <Name>{props.pokemonData?.nickname}</Name>
+                    <Button onClick={() => props.deleteMyPokemon(props?.index)}>Release</Button>
                 </Container>
-                <Container>
-                    <PokemonImage src={bulbasaur}/>
-                    <Name>Bulbasaur</Name>
-                    <Owned>Owned: 1</Owned>
+                :
+                <Container onClick={() => props.onClick()}>
+                    <Name>{props.pokemonData?.name}</Name>
+                    <PokemonImage src={props?.pokemonData?.image}/>
+                    <Owned>Owned</Owned>
+                    <Owned fontWeight="700">{props?.dataOwned.length}</Owned>
                 </Container>
-                <Container>
-                    <PokemonImage src={bulbasaur}/>
-                    <Name>Bulbasaur</Name>
-                    <Owned>Owned: 1</Owned>
-                </Container>
-                <Container>
-                    <PokemonImage src={bulbasaur}/>
-                    <Name>Bulbasaur</Name>
-                    <Owned>Owned: 1</Owned>
-                </Container>
-                <Container>
-                    <PokemonImage src={bulbasaur}/>
-                    <Name>Bulbasaur</Name>
-                    <Owned>Owned: 1</Owned>
-                </Container>
-                <Container>
-                    <PokemonImage src={bulbasaur}/>
-                    <Name>Bulbasaur</Name>
-                    <Owned>Owned: 1</Owned>
-                </Container>
-                <Container>
-                    <PokemonImage src={bulbasaur}/>
-                    <Name>Bulbasaur</Name>
-                    <Owned>Owned: 1</Owned>
-                </Container>
-                <Container>
-                    <PokemonImage src={bulbasaur}/>
-                    <Name>Bulbasaur</Name>
-                    <Owned>Owned: 1</Owned>
-                </Container>
-                <Container>
-                    <PokemonImage src={bulbasaur}/>
-                    <Name>Bulbasaur</Name>
-                    <Owned>Owned: 1</Owned>
-                </Container>
-                <Container>
-                    <PokemonImage src={bulbasaur}/>
-                    <Name>Bulbasaur</Name>
-                    <Owned>Owned: 1</Owned>
-                </Container>
-                <Container>
-                    <PokemonImage src={bulbasaur}/>
-                    <Name>Bulbasaur</Name>
-                    <Owned>Owned: 1</Owned>
-                </Container>
-                <Container>
-                    <PokemonImage src={bulbasaur}/>
-                    <Name>Bulbasaur</Name>
-                    <Owned>Owned: 1</Owned>
-                </Container>
-                <Container>
-                    <PokemonImage src={bulbasaur}/>
-                    <Name>Bulbasaur</Name>
-                    <Owned>Owned: 1</Owned>
-                </Container>
-                <Container>
-                    <PokemonImage src={bulbasaur}/>
-                    <Name>Bulbasaur</Name>
-                    <Owned>Owned: 1</Owned>
-                </Container>
-                <Container>
-                    <PokemonImage src={bulbasaur}/>
-                    <Name>Bulbasaur</Name>
-                    <Owned>Owned: 1</Owned>
-                </Container>
-                <Container>
-                    <PokemonImage src={bulbasaur}/>
-                    <Name>Bulbasaur</Name>
-                    <Owned>Owned: 1</Owned>
-                </Container>
-                <Container>
-                    <PokemonImage src={bulbasaur}/>
-                    <Name>Bulbasaur</Name>
-                    <Owned>Owned: 1</Owned>
-                </Container>
-                <Container>
-                    <PokemonImage src={bulbasaur}/>
-                    <Name>Bulbasaur</Name>
-                    <Owned>Owned: 1</Owned>
-                </Container>
-                <Container>
-                    <PokemonImage src={bulbasaur}/>
-                    <Name>Bulbasaur</Name>
-                    <Owned>Owned: 1</Owned>
-                </Container>
-                <Container>
-                    <PokemonImage src={bulbasaur}/>
-                    <Name>Bulbasaur</Name>
-                    <Owned>Owned: 1</Owned>
-                </Container>
-            </Grid>
+            }
         </>
     )
 }

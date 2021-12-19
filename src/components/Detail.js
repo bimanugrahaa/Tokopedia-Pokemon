@@ -1,25 +1,34 @@
-import { CatchButton, Container, Name, Owned, PokemonImage } from "./StyleDetail";
-import bulbasaur from '../assets/bulbasaur.png';
+import { Card, CatchButton, Container, Grid, Name, Owned, PokemonImage } from "../styles/StyleDetail";
 
 
-export default function Detail() {
-    
+export default function Detail(props) {
     
     return(
         <>
-        <Container bordered>
-            <Name>Bulbasaur</Name>
-            <PokemonImage src={bulbasaur}/>
+        <Container>
+            <Name>{props?.pokemonDetail?.name}</Name>
+            <PokemonImage src={props?.pokemonDetail?.sprites?.front_default}/>
             <Owned>Owned: 1</Owned>
         </Container>
         <Container>
-            <CatchButton>CATCH!</CatchButton>
+            <CatchButton onClick={() => props.onClick()}>CATCH!</CatchButton>
         </Container>
         <Name>Types</Name>
-        <Owned>Grass</Owned>
+        <Grid>
+            {props?.pokemonDetail?.types?.map((result) => (
+                <Card>
+                <Owned>{result?.type?.name}</Owned>
+                </Card>
+            ))}
+        </Grid>
         <Name>Moves</Name>
-        <Owned>Grass</Owned>
-            
+        <Grid>
+            {props?.pokemonDetail?.moves?.map((result) => (
+                <Card>
+                <Owned>{result?.move?.name}</Owned>
+                </Card>
+            ))}
+        </Grid>
         </>
     )
 }

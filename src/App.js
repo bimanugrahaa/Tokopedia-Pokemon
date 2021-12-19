@@ -1,33 +1,32 @@
 import './App.css';
-import Card from './components/Card';
-import Detail from './components/Detail';
-import Header from './components/Header';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import PokemonDetail from './pages/PokemonDetail';
+import PokemonList from './pages/PokemonList';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from './store/Store'
+import MyPokemon from './pages/MyPokemon';
 
 function App() {
   return (
-    <>
-      <Header></Header>
-      {/* <Card></Card> */}
-      <Detail></Detail>
-    </>
-    
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
-  );
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" exact element={<PokemonList/>}/>
+            <Route path="/pokemon/:name" exact element={<PokemonDetail/>}/>
+            <Route path="/my-pokemon" exact element={<MyPokemon/>}/>
+          </Routes>
+        </BrowserRouter>
+      </PersistGate>
+    </Provider>
+    // <BrowserRouter>
+    //   <Routes>
+    //     <Route path="/" exact element={<PokemonList/>}/>
+    //     <Route path="/pokemon/:name" exact element={<PokemonDetail/>}/>
+    //   </Routes>
+    // </BrowserRouter>
+  )
 }
 
 export default App;

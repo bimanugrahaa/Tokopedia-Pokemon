@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ReactModal from "react-modal";
 import { useSelector } from "react-redux";
 import logo from '../assets/pokeball.png';
-import { Logo } from "./StyleHeader";
-import { Button, Image, Input, Text } from "./StyleModal";
+import { Button, Image, Input, Text } from "../styles/StyleModal";
 
 export default function Modal(prop) {
 
@@ -37,9 +36,6 @@ export default function Modal(prop) {
             setErrNickname("")
             setNickname("")
         }
-        
-        
-        
     }
 
     const handleInput = (e) => {

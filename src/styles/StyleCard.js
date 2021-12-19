@@ -1,22 +1,18 @@
 import { css } from "@emotion/react"
-import styled from "@emotion/styled"
+import styled from "@emotion/styled/macro"
 
 const dynamicFontWeight = props => 
     css`
         font-weight: ${props.fontWeight}
     `
 
-export const Grid = styled.div`
-    padding-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    overflow: hidden;
-    background-color: white;
-    background-size: cover;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
 
+
+export const Name = styled.p`
+    font-size: 14px;
+    text-transform: capitalize;
+    margin-top: 0;
+    margin-bottom: 0;
 `
 
 export const Container = styled.div`
@@ -38,6 +34,10 @@ export const Container = styled.div`
     &:hover {
         border: 1px solid rgba(255, 222, 0, 0.7);
         transform: scale(1.05);
+        ${Name} {
+            color: #3B4CCA;
+            font-weight: 500;
+        }
     }
 `
 
@@ -50,15 +50,6 @@ export const PokemonImage = styled.img`
     }
 `
 
-export const Name = styled.p`
-    font-size: 14px;
-    // background-color: blue;
-    // padding: 3px;
-    text-transform: capitalize;
-    // color: #3B4CCA;
-    margin-top: 0;
-    margin-bottom: 0;
-`
 
 export const Owned = styled.p`
     font-size: 12px;

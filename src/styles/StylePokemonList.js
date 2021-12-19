@@ -10,7 +10,6 @@ export const Grid = styled.div`
     align-items: center;
     justify-content: center;
     text-align: center;
-
 `
 
 export const Container = styled.div`
@@ -29,7 +28,6 @@ export const Button = styled.button`
     font-size: 24px;
     padding: 20px;
     width: 200px;
-    transition: all 0.5s;
     cursor: pointer;
     margin: auto;
 `

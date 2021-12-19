@@ -1,7 +1,6 @@
-import { Hamburger, Icon, Logo, MenuLabel, Nav, NavItem } from "./StyleHeader";
+import { Logo, Nav, NavItem } from "../styles/StyleHeader";
 import logo from '../assets/Pokemon_logo.svg';
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
 
 export default function Header() {
 

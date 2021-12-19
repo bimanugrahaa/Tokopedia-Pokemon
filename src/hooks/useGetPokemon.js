@@ -23,8 +23,6 @@ function useGetPokemonDetail(name) {
         }
     })
 
-    // console.log("Name", detailData)
-
     return {
         detailData,
         detailLoading,

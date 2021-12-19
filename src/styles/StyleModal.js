@@ -18,6 +18,7 @@ export const Image = styled.img`
     width: 50px;
     height: 50px;
 `
+
 export const Input = styled.input`
     width: 90%;
     height: 20px;
@@ -39,7 +40,6 @@ export const Button = styled.button`
     border: none;
     color: #FFFFFF;
     font-size: 18px;
-    transition: all 0.5s;
     cursor: pointer;
     text-align: center;
 `

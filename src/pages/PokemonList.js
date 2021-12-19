@@ -5,11 +5,13 @@ import { useNavigate } from "react-router-dom";
 import { useGetPokemonList } from "../hooks/useGetPokemon";
 import Card from '../components/Card';
 import Header from '../components/Header';
-import { Button, Container, Grid, H1 } from "./StylePokemonList";
+import { Button, Container, Grid, H1 } from "../styles/StylePokemonList";
+import { useSelector } from "react-redux";
 
 
 export default function PokemonList() {
-    
+    const myPokemon = useSelector((state) => state.myPokemon.myPokemon)
+
     const [pokemonList, getPokemonList] = useState([])
     const [offset, setOffset] = useState(0);
     const {pokemonDataList, pokemonDataLoading, pokemonDataError} = useGetPokemonList(20, offset);
@@ -27,24 +29,29 @@ export default function PokemonList() {
             console.log("error fetch pokemon list", error)
         }
     }
-    
-    useEffect(() => {
-        fetchPokemonList()
-    }, [pokemonDataList])
 
     //Fetch next data
     const loadMore = () => {
         setOffset(() => pokemonDataList?.pokemons?.nextOffset)
     }
+    
+    useEffect(() => {
+        fetchPokemonList()
+    }, [pokemonDataList])
 
-        return (
+    return (
         <>
             <Header></Header>
             <H1>Pokemon List</H1>
             <Grid>
-                {pokemonList?.map((result) => (
-                    <Card pokemonData={result} onClick={() => action(result.name)}></Card>
-                ))}
+                {pokemonList?.map((result, index) => {
+                    
+                    const dataOwned = myPokemon.filter((pokemon) => (
+                        pokemon.name === result?.name
+                    ))
+
+                    return (<Card key={index} pokemonData={result} dataOwned={dataOwned} onClick={() => action(result.name)}></Card>)
+                })}
             </Grid>
             <Container>
                 {pokemonDataLoading? 

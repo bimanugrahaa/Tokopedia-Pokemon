@@ -4,6 +4,7 @@ export const Logo = styled.img`
     height: 100px;
     width: 100%;
 `
+
 export const Nav = styled.nav`
     overflow: hidden;
     background-color: #FFDE00;

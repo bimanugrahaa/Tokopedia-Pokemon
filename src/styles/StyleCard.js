@@ -6,8 +6,6 @@ const dynamicFontWeight = props =>
         font-weight: ${props.fontWeight}
     `
 
-
-
 export const Name = styled.p`
     font-size: 14px;
     text-transform: capitalize;
@@ -16,17 +14,15 @@ export const Name = styled.p`
 `
 
 export const Container = styled.div`
-    
     position:relative;
     display:flex;
     flex-direction:column;
 
-    min-width:0;
     word-wrap:break-word;
     background-color:#fff;
     background-clip:border-box;
     border:1px solid rgba(0,0,0,.125);
-    border-radius:.25rem;
+    border-radius: 5px;
     margin: 10px;
     padding: 4px;
     transition: all 0.25s;
@@ -34,6 +30,7 @@ export const Container = styled.div`
     &:hover {
         border: 1px solid rgba(255, 222, 0, 0.7);
         transform: scale(1.05);
+        cursor: pointer;
         ${Name} {
             color: #3B4CCA;
             font-weight: 500;

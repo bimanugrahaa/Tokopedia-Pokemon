@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './store/Store'
 import MyPokemon from './pages/MyPokemon';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path="/" exact element={<PokemonList/>}/>
             <Route path="/pokemon/:name" exact element={<PokemonDetail/>}/>
             <Route path="/my-pokemon" exact element={<MyPokemon/>}/>
+            <Route path="*" element={<NotFound/>}/>
           </Routes>
         </BrowserRouter>
       </PersistGate>

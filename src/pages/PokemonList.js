@@ -45,7 +45,6 @@ export default function PokemonList() {
             <H1>Pokemon List</H1>
             <Grid>
                 {pokemonList?.map((result, index) => {
-                    
                     const dataOwned = myPokemon.filter((pokemon) => (
                         pokemon.name === result?.name
                     ))

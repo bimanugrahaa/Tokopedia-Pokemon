@@ -9,6 +9,7 @@ jobs:
   deploy:
     name: 'Deployment'
     runs-on: ubuntu-latest
+    node_version: 16.13.1
 
     steps:
       - uses: actions/checkout@v1

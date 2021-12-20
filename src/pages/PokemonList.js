@@ -27,6 +27,7 @@ export default function PokemonList() {
             getPokemonList([...pokemonList, ...pokemonDataList?.pokemons?.results])
         } catch (error) {
             console.log("error fetch pokemon list", error)
+            console.log("pokemonDataError", pokemonDataError)
         }
     }
 

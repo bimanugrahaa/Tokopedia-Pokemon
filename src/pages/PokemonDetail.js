@@ -31,6 +31,7 @@ export default function PokemonDetail() {
             await getPokemonDetail(detailData?.pokemon)
         } catch (error) {
             console.log("error fetch pokemon detail", error)
+            console.log("detailError", detailError)
         }
     }
 
